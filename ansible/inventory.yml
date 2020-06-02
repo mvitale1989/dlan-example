@@ -1,0 +1,8 @@
+all:
+  hosts:
+    openwrt-0: { ansible_host: "192.168.123.100" }
+    openwrt-1: { ansible_host: "192.168.123.101" }
+    openwrt-2: { ansible_host: "192.168.124.102" }
+  vars:
+    ansible_user: root
+    ansible_python_interpreter: /usr/bin/python

@@ -1,0 +1,14 @@
+---
+dlan_host_id: 2
+dlan_wan_interfaces_configuration:
+  eth0: {}
+  eth1: {}
+dlan_lan_interfaces_configuration:
+  eth2:
+    subnet_ipv4: "10.2.1.0/24"
+    subnet_ipv6: "fd35:6d2e:5a1b::/64"
+dlan_wg_privkey: UNoyicZ1jApVqNoPTj5yubbUD5ki7BGUSacuQ1cG2Wg=
+dlan_wg_pubkey: VkSfpOPBL8YoWVwHAaCrdIiomkjL5spk/P+69CRQyCM=
+dlan_links:
+  openwrt-0: { host: "192.168.123.100" }
+  openwrt-2: { host: "192.168.124.102" }

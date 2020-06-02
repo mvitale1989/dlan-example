@@ -1,0 +1,37 @@
+---
+#
+# Upstream DNS servers for all dnsmasq instances
+#
+dlan_upstream_dns_servers:
+- 8.8.8.8
+- 8.8.4.4
+- 1.1.1.1
+
+#
+# Secrets that will be used across all hosts
+#
+dlan_wg_psk: 64iccssnibGQRmwMlkQSUpR1QLjsl+WeI/Q9YNhPi/Y=
+dlan_ospf_psk: ozieChaech7ieb0OomooQu5ohj5Au4fouQuae3iet0mapheich1ahn3eish4shee
+
+#
+# Sample reverse proxying towards the nginx status stub service of the VMs
+# Port 8080 points to localhost only, and port 8081 loadbalances to all VMs
+#
+dlan_proxy:
+- name: nginx-stub-single
+  listen:
+  - "[::]:8080"
+  upstreams:
+  - "localhost:1337"
+- name: nginx-stub-all
+  listen:
+  - "[::]:8081"
+  upstreams:
+  - "openwrt-0.lan:1337"
+  - "openwrt-1.lan:1337"
+  - "openwrt-2.lan:1337"
+
+#
+# ssh keys to put in root user's authorized_keys
+#
+dlan_authorized_keys: []

@@ -1,0 +1,26 @@
+---
+#
+# This play lets us bootstrap python on the OpenWrt machine, before we can actually run the dlan role.
+#
+- hosts: all
+  gather_facts: false
+  tasks:
+  - name: Ensue a working DNS server is set
+    raw: "echo 'nameserver 8.8.8.8' >/etc/resolv.conf"
+  - name: Install ansible dependencies
+    raw: "opkg update && opkg install python openssh-sftp-server"
+  tags:
+  - never
+  - bootstrap
+
+#
+# The `group_by` task lets us automatically put machines into `machine_*` groups based on their architecture.
+# e.g. so we can use the `group_vars/machine_x86_64.yml` file for x86-specific configurations.
+#
+- hosts: all
+  pre_tasks:
+  - group_by: key=machine_{{ ansible_machine }}
+    tags:
+    - always
+  roles:
+  - name: dlan

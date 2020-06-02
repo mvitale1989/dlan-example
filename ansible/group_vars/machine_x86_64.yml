@@ -1,0 +1,11 @@
+---
+#
+# Extra packages to install on x86 hosts
+#
+dlan_opkg_install:
+- curl
+- rsyslog
+- vim-fuller
+- tcpdump
+- netcat
+- ss
