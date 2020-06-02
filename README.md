@@ -1,6 +1,8 @@
 # dlan-example
 
-Demo code for quickly bringing up some VMs to test out the dlan ansible module with a sample configuration. This repo is for demo only, do not use as a reference for a real world setup as there are some dangerous simplifications for the sake of convenience (e.g. ssh host key checking is disabled in the ansible config, wireguard keys are committed plaintext in the repo, etc).
+Example usage of the [dlan](https://github.com/mvitale1989/dlan) ansible role.
+
+This demo repository will let you quickly bring up some VMs, to test out the dlan ansible module with a sample configuration. This repo is for demo only, do not use as a reference for a real world setup as there are some dangerous simplifications for the sake of convenience (e.g. ssh host key checking is disabled in the ansible config, wireguard keys are committed plaintext in the repo, etc).
 
 Instructions:
 1. Install the required dependencies:
