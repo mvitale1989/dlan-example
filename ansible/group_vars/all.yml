@@ -20,16 +20,24 @@ dlan_ospf_psk: ozieChaech7ieb0OomooQu5ohj5Au4fouQuae3iet0mapheich1ahn3eish4shee
 dlan_proxy:
 - name: nginx-stub-single
   listen:
+  - "0.0.0.0:8080"
   - "[::]:8080"
   upstreams:
   - "localhost:1337"
 - name: nginx-stub-all
   listen:
+  - "0.0.0.0:8081"
   - "[::]:8081"
   upstreams:
   - "10.1.1.1:1337"
   - "10.1.1.2:1337"
   - "10.1.1.3:1337"
+
+#
+# Enable the nginx stub_status module on port 1337, for testing the above
+# proxying rules
+#
+dlan_nginx_status_port: 1337
 
 #
 # ssh keys to put in root user's authorized_keys
